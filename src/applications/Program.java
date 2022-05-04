@@ -7,6 +7,7 @@ import entities.Vehicle;
 import entities.CarRental;
 import exceptions.DateException;
 import services.RentalService;
+import services.BrazilTaxService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -37,7 +38,7 @@ public class Program {
 			System.out.print("Enter price per day: ");
 			double pricePerDay = sc.nextDouble();
 			
-			RentalService rentalService = new RentalService(pricePerHour, pricePerDay);
+			RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
 			rentalService.processInvoice(carRental);
 			
 			System.out.println(carRental.getInvoice());
