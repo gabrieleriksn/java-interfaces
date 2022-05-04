@@ -1,29 +1,28 @@
 package entities;
 
 import java.util.Date;
+import exceptions.DateException;
 
 public class CarRental {
 	
 	private Date start;
 	private Date finish;
+	
 	private Vehicle vehicle;
 	private Invoice invoice;
 	
 	public CarRental() {
 	}
 	
-	public CarRental(Date start, Date finish, Vehicle vehicle) {
+	public CarRental(Date start, Date finish, Vehicle vehicle) throws DateException {
+		if (finish.getTime() - start.getTime() < 0) {
+			throw new DateException("Invalid dates. The return date must be after the pickup date!");
+		}
 		this.start = start;
 		this.finish = finish;
 		this.vehicle = vehicle;
 	}
 	
-	public CarRental(Date start, Date finish, Vehicle vehicle, Invoice invoice) {
-		this.start = start;
-		this.finish = finish;
-		this.vehicle = vehicle;
-		this.invoice = invoice;
-	}
 	
 	public Date getStart() {
 		return start;

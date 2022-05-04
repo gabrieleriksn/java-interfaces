@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import entities.CarRental;
 import entities.Invoice;

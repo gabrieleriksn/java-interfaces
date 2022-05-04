@@ -1,8 +1,8 @@
-package Services;
+package services;
 
 public class BrazilTaxService {
 	
-	public static Double tax(Double amount) {
+	public static double tax(double amount) {
 		if (amount <= 100) {
 			return 0.2 * amount;
 		}
